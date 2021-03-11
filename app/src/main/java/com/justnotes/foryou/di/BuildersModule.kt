@@ -1,6 +1,6 @@
 package com.justnotes.foryou.di
 
-import com.justnotes.foryou.presentation.MainActivity
+import com.justnotes.foryou.presentation.ui.MainActivity
 import com.justnotes.foryou.presentation.NavFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

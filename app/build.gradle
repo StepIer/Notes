@@ -42,6 +42,8 @@ dependencies {
 
     implementation 'com.google.dagger:dagger:2.33'
     implementation 'com.google.dagger:dagger-android:2.33'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     kapt 'com.google.dagger:dagger-compiler:2.33'
     kapt 'com.google.dagger:dagger-android-processor:2.33'
 
