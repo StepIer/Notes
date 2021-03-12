@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_draph"
-    app:startDestination="@id/navFragment">
+    app:startDestination="@id/loginFragment">
     <fragment
         android:id="@+id/navFragment"
         android:name="com.justnotes.foryou.presentation.NavFragment"
@@ -18,4 +18,9 @@
         android:name="com.justnotes.foryou.presentation.NavFragment2"
         android:label="fragment_nav2"
         tools:layout="@layout/fragment_nav2" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.justnotes.foryou.presentation.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
 </navigation>

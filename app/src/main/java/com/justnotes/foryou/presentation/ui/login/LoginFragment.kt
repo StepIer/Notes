@@ -6,9 +6,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import androidx.core.widget.addTextChangedListener
 import com.justnotes.foryou.R
 
 class LoginFragment : Fragment() {
+
+
+    lateinit var editText_login : EditText
+    lateinit var editText_password: EditText
+
 
     companion object {
         fun newInstance() = LoginFragment()
@@ -20,7 +27,32 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_login, container, false)
+
+
+
+
+        val rootView = inflater.inflate(R.layout.fragment_login, container, false)
+        editText_login = rootView.findViewById(R.id.editText_login)
+        editText_password = rootView.findViewById(R.id.editText_password)
+
+        var loginViewModel = LoginViewModel()
+
+
+        editText_login.addTextChangedListener()
+        {
+            loginViewModel.loginLiveData.value = editText_login.text.toString()
+            editText_password.setText(loginViewModel.loginLiveData.value)
+
+        }
+
+        return rootView
+
+
+
+
+
+
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

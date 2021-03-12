@@ -6,12 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.justnotes.foryou.R
 import com.justnotes.foryou.domain.Note
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
-class NavFragment : DaggerFragment() {
+class NavFragment : Fragment() {
 
     @Inject
     lateinit var note: Note
