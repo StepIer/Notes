@@ -11,8 +11,17 @@ import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [NotesModule::class, AndroidSupportInjectionModule::class, BuildersModule::class])
-interface ApplicationComponent: AndroidInjector<NotesApplication> {
+@Component(
+    modules = [
+        NotesModule::class,
+        AndroidSupportInjectionModule::class,
+        BuildersModule::class,
+        DbModule::class,
+        UseCaseModule::class,
+        ViewModelModule::class
+    ]
+)
+interface ApplicationComponent : AndroidInjector<NotesApplication> {
 
 
     @Component.Builder

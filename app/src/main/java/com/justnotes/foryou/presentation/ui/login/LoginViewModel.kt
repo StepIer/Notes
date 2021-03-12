@@ -4,13 +4,18 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.justnotes.foryou.data.PlaceHolderApi
+import com.justnotes.foryou.domain.usecase.AddNoteUseCase
+import com.justnotes.foryou.domain.usecase.GetNoteUseCase
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-class LoginViewModel : ViewModel() {
+class LoginViewModel(
+    private val addNoteUseCase: AddNoteUseCase,
+    private val getNoteUseCase: GetNoteUseCase
+) : ViewModel() {
 
     var loginLiveData = MutableLiveData<String>()
     var passwordLiveData = MutableLiveData<String>()
@@ -32,16 +37,14 @@ class LoginViewModel : ViewModel() {
         val disposable = placeHolderApi.getTodos()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({todos ->
+            .subscribe({ todos ->
                 todos.forEach { Log.d("todos", it.toString()) }
-            },{exeption ->
+            }, { exeption ->
                 exeption.printStackTrace()
             })
 
 
-
     }
-
 
 
 }
